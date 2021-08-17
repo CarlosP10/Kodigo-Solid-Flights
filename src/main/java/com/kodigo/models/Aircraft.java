@@ -5,18 +5,17 @@ import lombok.*;
 @Getter
 @Setter
 public class Aircraft {
-    private String aircraft;
-    private String airline;
     private int capacity;
     private String model;
-    private int flyDistance;
+    private double flyDistance;
 
     public Aircraft(){
 
     }
 
-    public Aircraft(String airline, String model){
-        this.airline = airline;
+    public Aircraft(String model, int capacity, double flyDistance){
         this.model = model;
+        this.capacity = capacity;
+        this.flyDistance = flyDistance;
     }
 }
