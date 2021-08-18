@@ -4,6 +4,7 @@ import lombok.*;
 
 @Getter
 @Setter
+
 public class Aircraft {
     private int capacity;
     private String model;
