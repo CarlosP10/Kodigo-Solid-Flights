@@ -4,7 +4,7 @@ import lombok.NonNull;
 
 import java.util.ArrayList;
 
-public class Main {
+public class Flights {
     public static void main(String[] args) {
         Weather clima = new Weather(27,false);
         System.out.println(clima);
