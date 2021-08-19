@@ -14,11 +14,11 @@ public class MenuManageFlight implements FlightManager {
         MenuOptions menuOptions = new MenuOptions();
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------------------------");
-        System.out.println("Escoger una opcion: ");
-        System.out.println("1. Actualizar Vuelo ");
-        System.out.println("2. Cancelar Vuelo ");
-        System.out.println("3. Vuelo Aterrizado ");
-        System.out.println("4. Regresar ");
+        System.out.println("Pick an option: ");
+        System.out.println("1. Update flight");
+        System.out.println("2. Cancel flight");
+        System.out.println("3. Mark flight as landed");
+        System.out.println("4. Back");
         System.out.println("--------------------------");
         int value = scanner.nextInt();
 
@@ -36,7 +36,7 @@ public class MenuManageFlight implements FlightManager {
                 menuOptions.flightMenu();
                 break;
             default:
-                System.out.println("Ha ingresado un valor incorrecto.");
+                System.out.println("You have entered an incorrect value.");
         }
 
     }
@@ -44,10 +44,10 @@ public class MenuManageFlight implements FlightManager {
     @Override
     public void updateFlight(Flights flight) {
         MenuOptions menuOptions = new MenuOptions();
-        System.out.println("--INFORMACION ACTUAL--" + "\n");
+        System.out.println("--Current info--" + "\n");
         menuOptions.showFlight(flight);
 
-        System.out.println("--ACTUALIZAR VUELO--" + "\n");
+        System.out.println("--Update info--" + "\n");
         menuOptions.addNewFlightFromShell();
 
     }
@@ -55,14 +55,14 @@ public class MenuManageFlight implements FlightManager {
     @Override
     public void cancelFlight(Flights flight) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingresar razon por la cual es cancelado: ");
+        System.out.println("Reason why it was cancelled: ");
         String cancel = scanner.nextLine();
         flight.setValidate(cancel);
     }
 
     @Override
     public void landedFlight(Flights flight) {
-        System.out.println("El avion ha aterrizado: ");
-        flight.setValidate("Vuelvo ha aterrizado");
+        System.out.println("Flight has landed: ");
+        flight.setValidate("Flight landed");
     }
 }
