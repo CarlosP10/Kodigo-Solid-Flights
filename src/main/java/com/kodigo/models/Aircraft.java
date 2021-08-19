@@ -7,18 +7,11 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 public class Aircraft {
+    //Aircraft capacity
     private int capacity;
+    //Aircraft model number or name
     private String model;
+    //Aircraft flyDistance
     private double flyDistance;
-//not needed thank to lombok
-/*    public Aircraft(){
 
-    }*/
-
-//not needed thank to lombok
-/*    public Aircraft(String model, int capacity, double flyDistance){
-        this.model = model;
-        this.capacity = capacity;
-        this.flyDistance = flyDistance;
-    }*/
 }

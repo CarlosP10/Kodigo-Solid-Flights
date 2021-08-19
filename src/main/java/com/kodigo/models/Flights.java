@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Flights {
+    //All the attributes for correct information to flights
     private String id;
     String aircraft;
     String departure;

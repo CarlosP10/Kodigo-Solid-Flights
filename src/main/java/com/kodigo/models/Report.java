@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 
 public class Report {
+    //Flight report generate
     private String id;
     Flights flights;
     Weather weather;

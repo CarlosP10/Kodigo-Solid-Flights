@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FlightsInformation {
+    //Time and Delay that has each Flight
     private String time;
 
     public void addDelay(String delay){

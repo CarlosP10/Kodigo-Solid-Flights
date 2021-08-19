@@ -7,18 +7,8 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class FlightTo {
+        //Flight information to show country and city
         private String city;
         private String country;
-/*
-        //se aplica lombok ya no es necdsario declararlo
-        public FlightTo(){
 
-        }*/
-
-/*
-        //ya no es necesario gracias a lombok
-        public FlightTo(String city, String country){
-            this.city = city;
-            this.country = country;
-    }*/
 }

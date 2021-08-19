@@ -3,6 +3,7 @@ package com.kodigo.interfaces;
 import com.kodigo.models.Flights;
 
 public interface FlightManager {
+    // Show menu flight manager options
     void manangerMenu();
     //Update flight by id
     void updateFlight(Flights flight);

@@ -1,6 +1,7 @@
 package com.kodigo.models;
 
 public class WeatherType {
+    //All kind of weather to show by default
     Weather calido = new Weather(26.0,.71,5.0,.76,"Calido");
     Weather templado = new Weather(21.0,.61,9.0,.79,"Templado");
     Weather polar = new Weather(-2.0,0.0,19.0,.79,"Polar");
