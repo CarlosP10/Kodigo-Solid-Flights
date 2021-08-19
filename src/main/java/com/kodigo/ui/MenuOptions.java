@@ -9,6 +9,31 @@ import java.util.Scanner;
 public class MenuOptions implements FlightMenu {
 
     @Override
+    public void flightMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("--------------------------");
+        System.out.println("Escoger una opcion: ");
+        System.out.println("1. Mostrar Vuelos ");
+        System.out.println("2. Nuevo Vuelo desde consola");
+        System.out.println("3. Nuevo Vuelo desde excel ");
+        int value = scanner.nextInt();
+
+        switch (value){
+            case 1:
+                showFlight(new Flights());
+                break;
+            case 2:
+                addNewFlightFromShell(new Flights());
+                break;
+//            case 3:
+//                addNewFlightFromExcel(Args dd);
+//                break;
+            default:
+                System.out.println("Ha ingresado un valor incorrecto.");
+                break;
+    }
+
+    @Override
     public void showFlight(Flights flights) {
         StringBuilder flight = new StringBuilder();
         flight.append("-----------------------------").append("\n");
