@@ -12,4 +12,5 @@ public interface FlightMenu {
     void addNewFlightFromShell();
     //Add new flights from excel file
     void addNewFlightFromExcel();
+    void generateReports();
 }
