@@ -10,6 +10,4 @@ f
 ]
 -src/main/java/com/kodigo/models/Aircraft.java,d/2/d225c9563ad0e3aed23d5cb4de4f0f538f8e013d
 \
-,src/main/java/com/kodigo/models/Airline.java,f/4/f4702debe8414cae885374d1cab8e4c1a239d372
-\
 ,src/main/java/com/kodigo/models/Weather.java,e/7/e77cb50926d3dfcef027c4d14ec4e0fbaabb2e7d

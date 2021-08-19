@@ -8,12 +8,6 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 public class Airline {
+    private String id;
     private String airlineName;
-
-    /* public Airline(){
-
-    }
-    public Airline(String airlineName){
-        this.airlineName = airlineName;
-    }*/
 }
