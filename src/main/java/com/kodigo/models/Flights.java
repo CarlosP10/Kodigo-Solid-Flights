@@ -6,6 +6,6 @@ public class Flights {
     Aircraft aircraft;
     //FlightInformation flightInformation;
     FlightTo flightTo;
-    //Airline airline;
+    Airline airline;
     private boolean validate;
 }
