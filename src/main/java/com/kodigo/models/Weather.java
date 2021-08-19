@@ -1,23 +1,10 @@
 package com.kodigo.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.kodigo.provider.WeatherProvider;
 
-@Getter
-@Setter
-@AllArgsConstructor
 public class Weather {
-    private double temperature;
-    private double precipitation;
-    private double wind;
-    private double humidity;
-    private String weatherState;
-
-    public String toPercentage(double value) {
-        double percentage = (value * 100);
-        return String.format("%.0f", percentage) + "%";
+    public static void main(String[] args) {
+        WeatherProvider.doHttpGet();
     }
 
 }
-
