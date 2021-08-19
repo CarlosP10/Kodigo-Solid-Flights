@@ -13,9 +13,9 @@ public class MenuOptions implements FlightMenu {
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------------------------");
-        System.out.println("Pick an option: ");
-        System.out.println("1. Show flights ");
-        System.out.println("2. Update flight ");
+        System.out.println("Pick an option:");
+        System.out.println("1. Show flights");
+        System.out.println("2. Update flight");
         System.out.println("3. New flight from shell");
         System.out.println("4. Import flights from Excel");
         System.out.println("5. Generate report and send Email");
