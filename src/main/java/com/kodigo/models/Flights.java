@@ -11,13 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Flights {
     private String id;
-    Aircraft aircraft;
-    FlightsInformation departure;
-    FlightsInformation arrival;
-    FlightTo origin;
-    FlightTo destination;
+    String aircraft;
+    String departure;
+    String arrival;
+    String origin;
+    String destination;
     private String postalCode;
-    Airline airline;
-    private boolean validate;
+    String airline;
+    private String validate;
 
 }
