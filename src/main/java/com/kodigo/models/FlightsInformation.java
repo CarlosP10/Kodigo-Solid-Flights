@@ -5,16 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class FlightsInformation {
-    private LocalDateTime time;
+    private String time;
 
-    public void addDelay(LocalDateTime delay){
+    public void addDelay(String delay){
         this.time = delay;
     }
 }
