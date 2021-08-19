@@ -51,6 +51,35 @@ public class MenuOptions implements FlightMenu {
     @Override
     public void addNewFlightFromShell(Flights flight) {
         Scanner scanner = new Scanner(System.in);
+        Flights flight = new Flights();
+
+        System.out.println("Insert aircraft type");
+        String aircraft = scanner.nextLine();
+        flight.setAircraft(aircraft);
+
+        System.out.println("Insert departure:");
+        String departure = scanner.nextLine();
+        flight.setDeparture(departure);
+
+        System.out.println("Insert arrival:");
+        String arrival = scanner.nextLine();
+        flight.setArrival(arrival);
+
+        System.out.println("Insert origin:");
+        String origin = scanner.nextLine();
+        flight.setOrigin(origin);
+
+        System.out.println("Insert destination:");
+        String destination = scanner.nextLine();
+        flight.setDestination(destination);
+
+        System.out.println("Insert postal code");
+        String postalCode = scanner.nextLine();
+        flight.setPostalCode(postalCode);
+
+        System.out.println("Insert airline:");
+        String airline = scanner.nextLine();
+        flight.setAirline(airline);
 
 
     }
