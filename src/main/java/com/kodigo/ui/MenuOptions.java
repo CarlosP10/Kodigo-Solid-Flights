@@ -13,11 +13,11 @@ public class MenuOptions implements FlightMenu {
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------------------------");
-        System.out.println("Escoger una opcion: ");
-        System.out.println("1. Mostrar Vuelos ");
-        System.out.println("2. Actualizar un vuelo ");
-        System.out.println("3. Nuevo Vuelo desde consola");
-        System.out.println("4. Nuevo Vuelo desde excel ");
+        System.out.println("Pick an option: ");
+        System.out.println("1. Show flights ");
+        System.out.println("2. Update flight ");
+        System.out.println("3. New flight from shell");
+        System.out.println("4. Import flights from Excel");
         System.out.println("--------------------------");
         int value = scanner.nextInt();
 
@@ -35,7 +35,7 @@ public class MenuOptions implements FlightMenu {
                 addNewFlightFromExcel();
                 break;
             default:
-                System.out.println("Ha ingresado un valor incorrecto.");
+                System.out.println("You've entered an incorrect value, please try again.");
                 break;
         }
     }
