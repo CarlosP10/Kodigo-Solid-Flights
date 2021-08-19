@@ -5,9 +5,9 @@ import org.apache.http.util.Args;
 
 public interface FlightMenu {
     //Show flights in the shell
-    static void showFlights(){}
+    void showFlight(Flights flights);
     //Add new flight from the shell
-    static void addNewFlightFromShell(Flights flight){}
+    void addNewFlightFromShell(Flights flight);
     //Add new flights from excel file
-    static void addNewFlightFromExcel(Args filename){}
+    void addNewFlightFromExcel(Args filename);
 }

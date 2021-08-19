@@ -1,12 +1,22 @@
 package com.kodigo.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Flights {
-    private String ID;
-    private String postalCode;
+    private String id;
     Aircraft aircraft;
-    //FlightInformation flightInformation;
-    FlightTo flightTo;
+    FlightsInformation departure;
+    FlightsInformation arrival;
+    FlightTo origin;
+    FlightTo destination;
+    private String postalCode;
     Airline airline;
     private boolean validate;
 
