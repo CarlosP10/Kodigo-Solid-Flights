@@ -7,6 +7,7 @@ import org.apache.http.util.Args;
 import java.util.Scanner;
 
 public class MenuOptions implements FlightMenu {
+    MenuManageFlight menuManageFlight = new MenuManageFlight();
 
     @Override
     public void flightMenu() {
@@ -14,8 +15,9 @@ public class MenuOptions implements FlightMenu {
         System.out.println("--------------------------");
         System.out.println("Escoger una opcion: ");
         System.out.println("1. Mostrar Vuelos ");
-        System.out.println("2. Nuevo Vuelo desde consola");
-        System.out.println("3. Nuevo Vuelo desde excel ");
+        System.out.println("2. Actualizar un vuelo ");
+        System.out.println("3. Nuevo Vuelo desde consola");
+        System.out.println("4. Nuevo Vuelo desde excel ");
         int value = scanner.nextInt();
 
         switch (value) {
@@ -23,11 +25,14 @@ public class MenuOptions implements FlightMenu {
                 showFlight(new Flights());
                 break;
             case 2:
-                addNewFlightFromShell(new Flights());
+                menuManageFlight.manangerMenu();
                 break;
-//            case 3:
-//                addNewFlightFromExcel(Args dd);
-//                break;
+            case 3:
+                addNewFlightFromShell();
+                break;
+            case 4:
+                addNewFlightFromExcel();
+                break;
             default:
                 System.out.println("Ha ingresado un valor incorrecto.");
                 break;
@@ -50,7 +55,7 @@ public class MenuOptions implements FlightMenu {
         }
 
         @Override
-        public void addNewFlightFromShell (Flights flights){
+        public void addNewFlightFromShell (){
             Scanner scanner = new Scanner(System.in);
             Flights flight = new Flights();
 
@@ -86,7 +91,7 @@ public class MenuOptions implements FlightMenu {
         }
 
         @Override
-        public void addNewFlightFromExcel (Args filename){
+        public void addNewFlightFromExcel (){
 
         }
 

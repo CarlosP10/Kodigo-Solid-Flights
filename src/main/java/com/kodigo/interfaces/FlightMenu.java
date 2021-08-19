@@ -8,7 +8,7 @@ public interface FlightMenu {
     //Show flights in the shell
     void showFlight(Flights flights);
     //Add new flight from the shell
-    void addNewFlightFromShell(Flights flight);
+    void addNewFlightFromShell();
     //Add new flights from excel file
-    void addNewFlightFromExcel(Args filename);
+    void addNewFlightFromExcel();
 }

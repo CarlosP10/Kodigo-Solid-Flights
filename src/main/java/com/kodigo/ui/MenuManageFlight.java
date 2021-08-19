@@ -7,16 +7,18 @@ import java.util.Scanner;
 
 public class MenuManageFlight implements FlightManager {
 
-    MenuOptions menuOptions;
+
 
     @Override
     public void manangerMenu() {
+        MenuOptions menuOptions = new MenuOptions();
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------------------------");
         System.out.println("Escoger una opcion: ");
         System.out.println("1. Actualizar Vuelo ");
         System.out.println("2. Cancelar Vuelo ");
         System.out.println("3. Vuelo Aterrizado ");
+        System.out.println("4. Regresar ");
         int value = scanner.nextInt();
 
         switch (value){
@@ -29,6 +31,9 @@ public class MenuManageFlight implements FlightManager {
             case 3:
                 landedFlight(new Flights());
                 break;
+            case 4:
+                menuOptions.flightMenu();
+                break;
             default:
                 System.out.println("Ha ingresado un valor incorrecto.");
         }
@@ -37,11 +42,12 @@ public class MenuManageFlight implements FlightManager {
 
     @Override
     public void updateFlight(Flights flight) {
+        MenuOptions menuOptions = new MenuOptions();
         System.out.println("--INFORMACION ACTUAL--" + "\n");
         menuOptions.showFlight(flight);
 
         System.out.println("--ACTUALIZAR VUELO--" + "\n");
-        menuOptions.addNewFlightFromShell(flight);
+        menuOptions.addNewFlightFromShell();
 
     }
 

@@ -24,5 +24,3 @@ g
 7src/main/java/com/kodigo/models/FlightsInformation.java,2/2/229c928c3d1fd214529bc6a81706f393fe3fafc9
 ]
 -src/main/java/com/kodigo/models/FlightTo.java,b/e/be129258bb0417bea71cbfcd4311724f40fcad8c
-f
-6src/main/java/com/kodigo/interfaces/FlightManager.java,e/e/eea3d655b7c4a1b0d6f8d24f572a20a0c442cb53
