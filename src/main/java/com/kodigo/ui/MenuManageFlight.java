@@ -41,7 +41,7 @@ public class MenuManageFlight implements FlightManager {
         menuOptions.showFlight(flight);
 
         System.out.println("--ACTUALIZAR VUELO--" + "\n");
-
+        menuOptions.addNewFlightFromShell(flight);
 
     }
 
