@@ -18,6 +18,7 @@ public class MenuOptions implements FlightMenu {
         System.out.println("2. Actualizar un vuelo ");
         System.out.println("3. Nuevo Vuelo desde consola");
         System.out.println("4. Nuevo Vuelo desde excel ");
+        System.out.println("--------------------------");
         int value = scanner.nextInt();
 
         switch (value) {
@@ -52,6 +53,7 @@ public class MenuOptions implements FlightMenu {
             flight.append("Airline: ").append(flights.getAirline()).append("\n");
             flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
             flight.append("-----------------------------").append("\n");
+            System.out.println(flight);
         }
 
         @Override
@@ -86,6 +88,8 @@ public class MenuOptions implements FlightMenu {
             System.out.println("Insert airline:");
             String airline = scanner.nextLine();
             flight.setAirline(airline);
+
+            showFlight(flight);
 
 
         }

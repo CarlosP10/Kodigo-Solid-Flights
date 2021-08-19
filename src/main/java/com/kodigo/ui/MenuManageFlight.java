@@ -19,6 +19,7 @@ public class MenuManageFlight implements FlightManager {
         System.out.println("2. Cancelar Vuelo ");
         System.out.println("3. Vuelo Aterrizado ");
         System.out.println("4. Regresar ");
+        System.out.println("--------------------------");
         int value = scanner.nextInt();
 
         switch (value){
