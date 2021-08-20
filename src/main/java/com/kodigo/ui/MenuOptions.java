@@ -26,7 +26,7 @@ public class MenuOptions implements FlightMenu {
         switch (value) {
             case 1:
                 if(FlightsList.getFlightsList().FlightsList.isEmpty()){
-                    System.out.println("No hay ninguna informacion por mostrar");
+                    System.out.println("No information to show");
                     flightMenu();
                 }
                 else {
