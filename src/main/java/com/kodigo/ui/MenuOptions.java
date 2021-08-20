@@ -26,8 +26,14 @@ public class MenuOptions implements FlightMenu {
 
         switch (value) {
             case 1:
+<<<<<<< HEAD
                 if(flightsList.FlightsList.isEmpty()){
                     System.out.println("No hay ninguna informacion por mostrar");
+=======
+                if(FlightsList.getFlightsList().FlightsList.isEmpty()){
+                    System.out.println("No Data Available");
+                    System.out.println("No information to show");
+>>>>>>> 50827d7d81dd64a60003338636a4071de673caf6
                     flightMenu();
                 }
                 else {
@@ -48,6 +54,7 @@ public class MenuOptions implements FlightMenu {
                 break;
             default:
                 System.out.println("You've entered an incorrect value, please try again.");
+                flightMenu();
                 break;
         }
     }
