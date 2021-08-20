@@ -2,6 +2,7 @@ package com.kodigo.ui;
 
 import com.kodigo.interfaces.FlightMenu;
 import com.kodigo.models.Flights;
+import com.kodigo.models.FlightsList;
 import org.apache.http.util.Args;
 
 import java.util.Scanner;
@@ -93,9 +94,14 @@ public class MenuOptions implements FlightMenu {
         String airline = scanner.nextLine();
         flight.setAirline(airline);
 
-//            showFlight(flight);
+        addFlightsToList(flight);
+    }
 
-
+    public void addFlightsToList (Flights flight) {
+        FlightsList list = FlightsList.getFlightsList();
+        list.FlightsList.add(new String[][] {{flight.getDeparture(), flight.getArrival(), flight.getOrigin(), flight.getDestination(),flight.getPostalCode(), flight.getAirline(), flight.getAircraft()}});
+        System.out.println("Flight Added Successfully");
+        flightMenu();
     }
 
     @Override
