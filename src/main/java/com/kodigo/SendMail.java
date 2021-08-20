@@ -12,8 +12,8 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMail {
 
-    public void sendMailMethod(String emailTo, String emailMessage) {
-//String email, String messageEmail
+    public static void sendMailMethod(String emailTo, String emailMessage) {
+
         // Recipient's email ID needs to be mentioned.
         String to = emailTo;
 
@@ -60,7 +60,7 @@ public class SendMail {
             message.setSubject("[KODIGO] - Flights information");
 
             // Now set the actual message
-            message.setText("Prueba que funciona");
+            message.setText(emailMessage);
 
             System.out.println("sending...");
             // Send message

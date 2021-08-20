@@ -26,5 +26,3 @@ g
 -src/main/java/com/kodigo/provider/ApiKey.java,4/1/412bfddddb6f5be56f948aad43524781c6deb32b
 f
 6src/main/java/com/kodigo/provider/WeatherProvider.java,d/b/db868a5aad2cf459ec811e6f7b16f26c747120bf
-c
-3src/main/java/com/kodigo/interfaces/FlightMenu.java,7/b/7b8533c41f395988f625c85f8b38644b759ed165

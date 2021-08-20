@@ -113,12 +113,12 @@ public class MenuOptions implements FlightMenu {
 
     @Override
     public void generateReports() {
-        SendMail sendMail = new SendMail();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println(example);
         System.out.println("Write an email: ");
         String email = scanner.nextLine();
-        sendMail.sendMailMethod(email, this.example);
+        SendMail.sendMailMethod(email, this.example);
         //method to send email
         System.out.println("Information has send to : " + email);
         flightMenu();
