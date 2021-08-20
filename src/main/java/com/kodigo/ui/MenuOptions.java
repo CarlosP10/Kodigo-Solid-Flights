@@ -1,14 +1,15 @@
 package com.kodigo.ui;
 
+import com.kodigo.SendMail;
 import com.kodigo.interfaces.FlightMenu;
 import com.kodigo.models.Flights;
-import org.apache.http.util.Args;
+
 
 import java.util.Scanner;
 
 public class MenuOptions implements FlightMenu {
     MenuManageFlight menuManageFlight = new MenuManageFlight();
-
+    String example = "";
     @Override
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -58,6 +59,8 @@ public class MenuOptions implements FlightMenu {
         flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
         flight.append("-----------------------------").append("\n");
         System.out.println(flight);
+        example = flight.toString();
+        System.out.println(example);
     }
 
     @Override
@@ -92,8 +95,9 @@ public class MenuOptions implements FlightMenu {
         System.out.println("Insert airline:");
         String airline = scanner.nextLine();
         flight.setAirline(airline);
+        showFlight(flight);
+        flightMenu();
 
-//            showFlight(flight);
 
 
     }
@@ -104,16 +108,20 @@ public class MenuOptions implements FlightMenu {
         System.out.println("Write you excel name: ");
         String fileName = scanner.nextLine();
         System.out.println("Your fileName is " + fileName);
+        flightMenu();
     }
 
     @Override
     public void generateReports() {
-
+        SendMail sendMail = new SendMail();
         Scanner scanner = new Scanner(System.in);
+        System.out.println(example);
         System.out.println("Write an email: ");
         String email = scanner.nextLine();
+        sendMail.sendMailMethod(email, this.example);
         //method to send email
-        System.out.println("Information has send to :" + email);
+        System.out.println("Information has send to : " + email);
+        flightMenu();
     }
 
 }
