@@ -3,12 +3,8 @@ package com.kodigo.ui;
 import com.kodigo.SendMail;
 import com.kodigo.interfaces.FlightMenu;
 import com.kodigo.models.Flights;
-<<<<<<< HEAD
 import com.kodigo.models.FlightsList;
 import org.apache.http.util.Args;
-=======
-
->>>>>>> c3dd7f198c36a91bb18e3953672329e688e4f382
 
 import java.util.Scanner;
 
