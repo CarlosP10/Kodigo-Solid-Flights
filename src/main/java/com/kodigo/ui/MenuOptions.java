@@ -103,12 +103,8 @@ public class MenuOptions implements FlightMenu {
         showFlight(flight);
         flightMenu();
 
-<<<<<<< HEAD
         addFlightsToList(flight);
     }
-=======
-
->>>>>>> c3dd7f198c36a91bb18e3953672329e688e4f382
 
     public void addFlightsToList (Flights flight) {
         FlightsList list = FlightsList.getFlightsList();
