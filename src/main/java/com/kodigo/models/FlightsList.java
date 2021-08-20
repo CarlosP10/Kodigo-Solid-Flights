@@ -20,6 +20,6 @@ public class FlightsList {
 
     @Getter
     @Setter
-    public ArrayList<String[][]> FlightsList = new ArrayList<>();
+    public ArrayList<Flights> FlightsList = new ArrayList<>();
 
 }

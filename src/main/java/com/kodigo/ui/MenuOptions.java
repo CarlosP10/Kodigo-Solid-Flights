@@ -4,13 +4,12 @@ import com.kodigo.SendMail;
 import com.kodigo.interfaces.FlightMenu;
 import com.kodigo.models.Flights;
 import com.kodigo.models.FlightsList;
-import org.apache.http.util.Args;
 
 import java.util.Scanner;
 
 public class MenuOptions implements FlightMenu {
     MenuManageFlight menuManageFlight = new MenuManageFlight();
-    String example = "";
+    StringBuilder flightsString = new StringBuilder();
     @Override
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +25,13 @@ public class MenuOptions implements FlightMenu {
 
         switch (value) {
             case 1:
-                showFlight(new Flights());
+                if(FlightsList.getFlightsList().FlightsList.isEmpty()){
+                    System.out.println("No hay ninguna informacion por mostrar");
+                    flightMenu();
+                }
+                else {
+                    showAllFlights();
+                }
                 break;
             case 2:
                 menuManageFlight.manangerMenu();
@@ -47,7 +52,7 @@ public class MenuOptions implements FlightMenu {
     }
 
     @Override
-    public void showFlight (Flights flights){
+    public String showFlight (Flights flights){
         StringBuilder flight = new StringBuilder();
         flight.append("-----------------------------").append("\n");
         flight.append("Departure: ").append(flights.getDeparture()).append("\n");
@@ -60,8 +65,8 @@ public class MenuOptions implements FlightMenu {
         flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
         flight.append("-----------------------------").append("\n");
         System.out.println(flight);
-        example = flight.toString();
-        System.out.println(example);
+        return flight.toString();
+//        System.out.println(example);
     }
 
     @Override
@@ -104,9 +109,17 @@ public class MenuOptions implements FlightMenu {
 
     public void addFlightsToList (Flights flight) {
         FlightsList list = FlightsList.getFlightsList();
-        list.FlightsList.add(new String[][] {{flight.getDeparture(), flight.getArrival(), flight.getOrigin(), flight.getDestination(),flight.getPostalCode(), flight.getAirline(), flight.getAircraft()}});
+        list.FlightsList.add(flight);
         System.out.println("Flight Added Successfully");
         flightMenu();
+    }
+
+    public void showAllFlights(){
+        FlightsList flightsList = FlightsList.getFlightsList();
+        flightsList.FlightsList.forEach(flight -> {
+            flightsString.append(showFlight(flight));
+            showFlight(flight);
+        });
     }
 
     @Override
@@ -122,10 +135,9 @@ public class MenuOptions implements FlightMenu {
     public void generateReports() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println(example);
         System.out.println("Write an email: ");
         String email = scanner.nextLine();
-        SendMail.sendMailMethod(email, this.example);
+        SendMail.sendMailMethod(email, flightsString.toString());
         //method to send email
         System.out.println("Information has send to : " + email);
         flightMenu();
