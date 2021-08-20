@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class MenuOptions implements FlightMenu {
     MenuManageFlight menuManageFlight = new MenuManageFlight();
     StringBuilder flightsString = new StringBuilder();
+    FlightsList flightsList = FlightsList.getFlightsList();
     @Override
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +26,7 @@ public class MenuOptions implements FlightMenu {
 
         switch (value) {
             case 1:
-                if(FlightsList.getFlightsList().FlightsList.isEmpty()){
+                if(flightsList.FlightsList.isEmpty()){
                     System.out.println("No hay ninguna informacion por mostrar");
                     flightMenu();
                 }
@@ -64,7 +65,7 @@ public class MenuOptions implements FlightMenu {
         flight.append("Airline: ").append(flights.getAirline()).append("\n");
         flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
         flight.append("-----------------------------").append("\n");
-        System.out.println(flight);
+//        System.out.println(flight);
         return flight.toString();
 //        System.out.println(example);
     }
@@ -101,21 +102,20 @@ public class MenuOptions implements FlightMenu {
         System.out.println("Insert airline:");
         String airline = scanner.nextLine();
         flight.setAirline(airline);
+        addFlightsToList(flight);
         showFlight(flight);
         flightMenu();
 
-        addFlightsToList(flight);
     }
 
     public void addFlightsToList (Flights flight) {
-        FlightsList list = FlightsList.getFlightsList();
-        list.FlightsList.add(flight);
+        flightsList.FlightsList.add(flight);
         System.out.println("Flight Added Successfully");
         flightMenu();
     }
 
     public void showAllFlights(){
-        FlightsList flightsList = FlightsList.getFlightsList();
+
         flightsList.FlightsList.forEach(flight -> {
             flightsString.append(showFlight(flight));
             showFlight(flight);
