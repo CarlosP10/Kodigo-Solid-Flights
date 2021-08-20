@@ -26,14 +26,9 @@ public class MenuOptions implements FlightMenu {
 
         switch (value) {
             case 1:
-<<<<<<< HEAD
                 if(flightsList.FlightsList.isEmpty()){
-                    System.out.println("No hay ninguna informacion por mostrar");
-=======
-                if(FlightsList.getFlightsList().FlightsList.isEmpty()){
-                    System.out.println("No Data Available");
                     System.out.println("No information to show");
->>>>>>> 50827d7d81dd64a60003338636a4071de673caf6
+
                     flightMenu();
                 }
                 else {
@@ -60,8 +55,9 @@ public class MenuOptions implements FlightMenu {
     }
 
     @Override
-    public String showFlight (Flights flights){
+    public void showFlight (Flights flights){
         StringBuilder flight = new StringBuilder();
+
         flight.append("-----------------------------").append("\n");
         flight.append("Departure: ").append(flights.getDeparture()).append("\n");
         flight.append("Arrivals: ").append(flights.getArrival()).append("\n");
@@ -72,9 +68,9 @@ public class MenuOptions implements FlightMenu {
         flight.append("Airline: ").append(flights.getAirline()).append("\n");
         flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
         flight.append("-----------------------------").append("\n");
-//        System.out.println(flight);
-        return flight.toString();
-//        System.out.println(example);
+        flightsString.append(flight);
+        System.out.println(flight);
+//        return System.out.println(showInfo);;
     }
 
     @Override
@@ -109,8 +105,9 @@ public class MenuOptions implements FlightMenu {
         System.out.println("Insert airline:");
         String airline = scanner.nextLine();
         flight.setAirline(airline);
-        addFlightsToList(flight);
+
         showFlight(flight);
+        addFlightsToList(flight);
         flightMenu();
 
     }
@@ -124,7 +121,7 @@ public class MenuOptions implements FlightMenu {
     public void showAllFlights(){
 
         flightsList.FlightsList.forEach(flight -> {
-            flightsString.append(showFlight(flight));
+
             showFlight(flight);
         });
     }
