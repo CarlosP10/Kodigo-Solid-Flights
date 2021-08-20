@@ -2,13 +2,13 @@ package com.kodigo;
 
 import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
+import java.io.IOException;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeBodyPart;
 
 public class SendMail {
 
@@ -44,7 +44,7 @@ public class SendMail {
         });
 
         // Used to debug SMTP issues
-        session.setDebug(true);
+//        session.setDebug(true);
 
         try {
             // Create a default MimeMessage object.
@@ -60,7 +60,30 @@ public class SendMail {
             message.setSubject("[KODIGO] - Flights information");
 
             // Now set the actual message
-            message.setText(emailMessage);
+//            message.setText(emailMessage);
+
+            Multipart multipart = new MimeMultipart();
+
+            MimeBodyPart attachmentPart = new MimeBodyPart();
+
+            MimeBodyPart textPart = new MimeBodyPart();
+
+            try {
+
+                File f =new File("/home/carlos/Downloads/Flights1708.xlsx");
+
+                attachmentPart.attachFile(f);
+                textPart.setText("Hey! "+emailTo+" this are all the flights you enter in the shell.");
+                multipart.addBodyPart(textPart);
+                multipart.addBodyPart(attachmentPart);
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            message.setContent(multipart);
 
             System.out.println("sending...");
             // Send message
