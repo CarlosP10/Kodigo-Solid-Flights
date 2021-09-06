@@ -6,7 +6,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class Mail {
 
-    public static void sendMail(String recepient) throws  Exception{
+    public static void sendMail(String recepient) {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 
@@ -25,7 +25,11 @@ public class Mail {
         });
 
         Message message = prepareMessage(session, myAccountEmail,recepient);
-        Transport.send(message);
+        try {
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
         System.out.println("Message sent succesfully");
     }
     private  static  Message prepareMessage(Session session, String myAccountEmail, String recepient){
