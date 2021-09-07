@@ -1,6 +1,5 @@
 package com.kodigo.ui;
 
-import com.kodigo.Mail;
 import com.kodigo.SendMail;
 import com.kodigo.interfaces.FlightMenu;
 import com.kodigo.models.Flights;
@@ -142,9 +141,8 @@ public class MenuOptions implements FlightMenu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write an email: ");
         String email = scanner.nextLine();
-        //ambas funcionan Main y SendMail se puede usar cualquiera de las dos para poder enviar mails
-        Mail.sendMail(email); // se envia un mail a la direccion de correo deseado
-        //SendMail.sendMailMethod(email, flightsString.toString());// se envia un mail a la direccion de correo deseado pero ademas un flights object
+        //SendMail se puede usar cualquiera de las dos para poder enviar mails
+        SendMail.sendMailMethod(email, flightsString.toString());// se envia un mail a la direccion de correo deseado pero ademas un flights object
         //method to send email
         System.out.println("Information has send to : " + email);
         flightMenu();

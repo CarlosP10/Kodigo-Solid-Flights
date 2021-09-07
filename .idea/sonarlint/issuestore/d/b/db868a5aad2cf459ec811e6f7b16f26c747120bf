@@ -1,0 +1,9 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ë‘ïç
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¯Ú¶‰üÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ï¢ÅÊþÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(îõËŸüÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(âØ’Íøÿÿÿÿ
+g
+java:S2095"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(¡Ë®ç
