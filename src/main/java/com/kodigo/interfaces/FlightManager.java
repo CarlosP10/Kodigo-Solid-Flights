@@ -4,7 +4,10 @@ import com.kodigo.models.Flights;
 
 public interface FlightManager {
     // Show menu flight manager options
-    void manangerMenu();
+
+
+    void managerMenu(int flightId);
+
     //Update flight by id
     void updateFlight(Flights flight);
     //Cancel flight by id

@@ -36,7 +36,22 @@ public class MenuOptions implements FlightMenu {
                 }
                 break;
             case 2:
-                menuManageFlight.manangerMenu();
+                if(flightsList.FlightsList.isEmpty()){
+                    System.out.println("No information to show");
+
+                    flightMenu();
+                }
+                else {
+                    System.out.println("Your flights are: ");
+                    showAllFlights();
+                    System.out.println("Please enter the flight ID");
+                    String flightId = scanner.next();
+
+                    System.out.println("Pick an option");
+//                    int index = flightsList.FlightsList.indexOf(flightId);
+                    menuManageFlight.managerMenu(sendFlight(flightId));
+                }
+
                 break;
             case 3:
                 addNewFlightFromShell();
@@ -53,12 +68,24 @@ public class MenuOptions implements FlightMenu {
                 break;
         }
     }
+    //This method just work to send de id of the id that the user selects.
+    public int sendFlight(String index){
+        int index2 = Integer.parseInt(index);
+
+        for (Flights flight : flightsList.FlightsList){
+            if(flight.getId() == index){
+                index2 = flightsList.FlightsList.indexOf(flight);
+            }
+        }
+        return index2;
+    }
 
     @Override
     public void showFlight (Flights flights){
         StringBuilder flight = new StringBuilder();
 
         flight.append("-----------------------------").append("\n");
+        flight.append("ID: ").append(flights.getId()).append("\n");
         flight.append("Departure: ").append(flights.getDeparture()).append("\n");
         flight.append("Arrivals: ").append(flights.getArrival()).append("\n");
         flight.append("Origin -> Country: ").append(flights.getOrigin()).append("\t")
@@ -67,6 +94,7 @@ public class MenuOptions implements FlightMenu {
                 .append("--- City: ").append(flights.getDestination()).append("\n");
         flight.append("Airline: ").append(flights.getAirline()).append("\n");
         flight.append("Aircraft: ").append(flights.getAircraft()).append("\n");
+        flight.append("Validate: ").append(flights.getValidate()).append("\n");
         flight.append("-----------------------------").append("\n");
         flightsString.append(flight);
         System.out.println(flight);
@@ -75,9 +103,19 @@ public class MenuOptions implements FlightMenu {
 
     @Override
     public void addNewFlightFromShell (){
-        Scanner scanner = new Scanner(System.in);
+
         Flights flight = new Flights();
 
+        addFlightInformation(flight);
+
+        showFlight(flight);
+        addFlightsToList(flight);
+        flightMenu();
+
+    }
+
+    public void addFlightInformation(Flights flight){
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Insert aircraft type");
         String aircraft = scanner.nextLine();
         flight.setAircraft(aircraft);
@@ -105,11 +143,6 @@ public class MenuOptions implements FlightMenu {
         System.out.println("Insert airline:");
         String airline = scanner.nextLine();
         flight.setAirline(airline);
-
-        showFlight(flight);
-        addFlightsToList(flight);
-        flightMenu();
-
     }
 
     public void addFlightsToList (Flights flight) {
@@ -121,7 +154,7 @@ public class MenuOptions implements FlightMenu {
     public void showAllFlights(){
 
         flightsList.FlightsList.forEach(flight -> {
-
+            flight.setId(String.valueOf(flightsList.FlightsList.indexOf(flight)));
             showFlight(flight);
         });
     }
