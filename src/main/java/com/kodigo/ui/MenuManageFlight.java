@@ -44,6 +44,7 @@ public class MenuManageFlight implements FlightManager {
 
     }
 
+    //This method just update Flight and save it in the same position as the array
     @Override
     public void updateFlight(Flights flight) {
         MenuOptions menuOptions = new MenuOptions();
@@ -57,6 +58,7 @@ public class MenuManageFlight implements FlightManager {
 
     }
 
+    //This method just update Validate value to Flight Cancel and give a reason
     @Override
     public void cancelFlight(Flights flight) {
 
@@ -67,6 +69,7 @@ public class MenuManageFlight implements FlightManager {
         updateToList(flight);
     }
 
+    //This method just update Validate value to Flight Landed.
     @Override
     public void landedFlight(Flights flight) {
 
@@ -75,6 +78,7 @@ public class MenuManageFlight implements FlightManager {
         updateToList(flight);
     }
 
+    //This method works to update de ArrayList that the user is creating.
     public void updateToList(Flights newFlight){
         FlightsList list = FlightsList.getFlightsList();
         list.FlightsList.set(currentFlightID, newFlight);

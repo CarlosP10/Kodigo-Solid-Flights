@@ -68,7 +68,7 @@ public class MenuOptions implements FlightMenu {
                 break;
         }
     }
-
+    //This method just work to send de id of the id that the user selects.
     public int sendFlight(String index){
         int index2 = Integer.parseInt(index);
 
