@@ -2,6 +2,8 @@ package com.kodigo.ui;
 
 import com.kodigo.SendMail;
 import com.kodigo.interfaces.FlightMenu;
+import com.kodigo.models.AddFlightsFromBatch;
+import com.kodigo.models.ExcelIn;
 import com.kodigo.models.Flights;
 import com.kodigo.models.FlightsList;
 
@@ -11,6 +13,8 @@ public class MenuOptions implements FlightMenu {
     MenuManageFlight menuManageFlight = new MenuManageFlight();
     StringBuilder flightsString = new StringBuilder();
     FlightsList flightsList = FlightsList.getFlightsList();
+    AddFlightsFromBatch batch = new AddFlightsFromBatch();
+
     @Override
     public void flightMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -157,14 +161,12 @@ public class MenuOptions implements FlightMenu {
             flight.setId(String.valueOf(flightsList.FlightsList.indexOf(flight)));
             showFlight(flight);
         });
+        flightMenu();
     }
 
     @Override
     public void addNewFlightFromExcel (){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Write you excel name: ");
-        String fileName = scanner.nextLine();
-        System.out.println("Your fileName is " + fileName);
+        batch.addBatch();
         flightMenu();
     }
 

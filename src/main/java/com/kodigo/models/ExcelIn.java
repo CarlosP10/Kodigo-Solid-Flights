@@ -59,7 +59,7 @@ public class ExcelIn {
                                 excelData[i][j] = cell.getStringCellValue();
                                 break;
                             case NUMERIC:
-                                excelData[i][j] = cell.getDateCellValue().toString();
+                                excelData[i][j] = cell.getLocalDateTimeCellValue().toString();
                                 break;
                             default:
                                 excelData[i][j] = cell.getRawValue();

@@ -1,6 +1,0 @@
-
-p	java:S116"VRename this field "FlightsList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†”όδϋÿÿÿÿ
-‘
-java:S1319"vThe type of the "FlightsList" object should be an interface such as "List" rather than the implementation "ArrayList".(†”όδϋÿÿÿÿ
-5
-java:S1700"Rename field "FlightsList"(†”όδϋÿÿÿÿ
