@@ -39,7 +39,6 @@ public class FileExplorer {
     }
 
     private void setFileExplorerDetails (boolean isNeededToOpenAFile) {
-        FileExplorer explorer = new FileExplorer(isNeededToOpenAFile);
         this.message = "Pick The Excel File you Wish to Insert";
         this.selectionMode = 0;
 
