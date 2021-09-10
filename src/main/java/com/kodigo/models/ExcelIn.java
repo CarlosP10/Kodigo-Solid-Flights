@@ -6,7 +6,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -21,11 +20,8 @@ public class ExcelIn {
 
         try {
             //Get Path of File
-            FileExplorer explorer = new FileExplorer();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel Files (.xlsx) ",".xlsx", "xlsx");
-            String message = "Pick The Excel File you Wish to Insert";
-            String path = explorer.getPath( message,0, filter);
-
+            FileExplorer explorer = new FileExplorer(true);
+            String path = explorer.getPath();
             //If no path is selected, return empty array
             if (path == null){
                 return excelData;
@@ -47,22 +43,22 @@ public class ExcelIn {
 
                 //Create a XSSFRow for each row, then cycle through the columns
                 //Create a XSSFCell for each column and grab the value in the (i,j) cell
-                for (int i = 0; i < numRows; i++) {
-                    XSSFRow row = sheet.getRow(i);
-                    for (int j = 0; j < numCols; j++) {
-                        XSSFCell cell = row.getCell(j);
+                for (int row = 0; row < numRows; row++) {
+                    XSSFRow xssfRow = sheet.getRow(row);
+                    for (int column = 0; column < numCols; column++) {
+                        XSSFCell cell = xssfRow.getCell(column);
                         //Switch used to store Dates properly
                         CellType type = cell.getCellType();
 
                         switch (type) {
                             case STRING:
-                                excelData[i][j] = cell.getStringCellValue();
+                                excelData[row][column] = cell.getStringCellValue();
                                 break;
                             case NUMERIC:
-                                excelData[i][j] = cell.getLocalDateTimeCellValue().toString();
+                                excelData[row][column] = cell.getLocalDateTimeCellValue().toString();
                                 break;
                             default:
-                                excelData[i][j] = cell.getRawValue();
+                                excelData[row][column] = cell.getRawValue();
                                 break;
                         }
                     }

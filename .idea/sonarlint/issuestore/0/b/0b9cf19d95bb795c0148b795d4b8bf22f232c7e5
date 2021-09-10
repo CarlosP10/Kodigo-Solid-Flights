@@ -1,7 +1,0 @@
-
-a
-java:S62014"FReplace this instanceof check and cast with 'instanceof String string'(èåúşÿÿÿÿ
-]
-java:S62017"BReplace this instanceof check and cast with 'instanceof Date date'(‚Ô’µûÿÿÿÿ
-N	java:S106M"9Replace this use of System.out or System.err by a logger.(Û®ô—
-S	java:S106Y"9Replace this use of System.out or System.err by a logger.(”áÊ‘ıÿÿÿÿ

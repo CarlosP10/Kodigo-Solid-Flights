@@ -5,30 +5,57 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FileExplorer {
 
-    public String getPath (String message, int selectionMode, FileNameExtensionFilter filter) {
-        //Path to File
+    private String message;
+    private int selectionMode;
+    private FileNameExtensionFilter filter;
+    private boolean isNeededToOpenAFile;
+
+    public FileExplorer (boolean isNeededToOpenAFile) {
+        this.isNeededToOpenAFile = isNeededToOpenAFile;
+    }
+
+    public String getPath () {
         String filePath;
 
-        //New instance of JFileChooser to use file explorer to retrieve path
         JFileChooser chooser = new JFileChooser();
 
-        //Set Default Directory for JFileChooser
         chooser.setCurrentDirectory(new java.io.File(System.getProperty("user.home")));
-        //Dialog for window
-        chooser.setDialogTitle(message);
-        //User can only pick Files or Folders
-        chooser.setFileSelectionMode(selectionMode);
-        //No "All Files" options available
-        chooser.setAcceptAllFileFilterUsed(false);
-        //Set a filter if needed
-        chooser.setFileFilter(filter);
+        setFileExplorerDetails(this.isNeededToOpenAFile);
 
-        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            //Path from selected file is used
+        chooser.setDialogTitle(this.message);
+        chooser.setFileSelectionMode(this.selectionMode);
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(this.filter);
+
+        if (hasAFileBeenSelected(chooser)) {
             filePath = chooser.getSelectedFile().toString();
             return filePath;
         }
         return null;
+    }
+
+    private boolean hasAFileBeenSelected(JFileChooser chooser) {
+        return chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION;
+    }
+
+    private void setFileExplorerDetails (boolean isNeededToOpenAFile) {
+        FileExplorer explorer = new FileExplorer(isNeededToOpenAFile);
+        this.message = "Pick The Excel File you Wish to Insert";
+        this.selectionMode = 0;
+
+        //Filter Details
+        final String FILE_TYPE_DESCRIPTION = "Excel Files (.xlsx) ";
+        final String EXCEL_FILE_EXTENSION = ".xlsx";
+        final String EXCEL_FILE_EXTENSION_ALTERNATIVE = "xlsx";
+        //Filter Details
+
+        this.filter = new FileNameExtensionFilter(FILE_TYPE_DESCRIPTION, EXCEL_FILE_EXTENSION, EXCEL_FILE_EXTENSION_ALTERNATIVE);
+
+        if (!isNeededToOpenAFile) {
+            this.message = "Please select the folder to save the file";
+            this.selectionMode = 1;
+            this.filter = null;
+        }
     }
 
 }
